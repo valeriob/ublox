@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ublox.Core", "ublox.Core\ublox.Core.csproj", "{1C14229D-5FC4-4284-B5D7-D9CD21D34EFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ublox.Universal", "ublox.Universal\ublox.Universal.csproj", "{E3A25054-28DE-4EC7-AF0A-567BED7C83D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ublox.Utility", "ublox.Utility\ublox.Utility.csproj", "{39767543-CCFA-4C18-A4F5-CF252D9A5612}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient", "TestClient\TestClient.csproj", "{A3984564-848B-4595-A3C0-2B6FCCB5310C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,8 +75,27 @@ Global
 		{39767543-CCFA-4C18-A4F5-CF252D9A5612}.Release|x86.ActiveCfg = Release|x86
 		{39767543-CCFA-4C18-A4F5-CF252D9A5612}.Release|x86.Build.0 = Release|x86
 		{39767543-CCFA-4C18-A4F5-CF252D9A5612}.Release|x86.Deploy.0 = Release|x86
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|x64.Build.0 = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Debug|x86.Build.0 = Debug|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|ARM.Build.0 = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|x64.ActiveCfg = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|x64.Build.0 = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|x86.ActiveCfg = Release|Any CPU
+		{A3984564-848B-4595-A3C0-2B6FCCB5310C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82957386-8FC3-49D1-A4C9-A676EEC19475}
 	EndGlobalSection
 EndGlobal
