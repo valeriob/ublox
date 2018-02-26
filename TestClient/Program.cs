@@ -10,35 +10,41 @@ namespace TestClient
     {
         static void Main(string[] args)
         {
+            Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)1;
+            var source = new CancellationTokenSource();
+
             var serial = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
             var device = new Device(new UbloxSerialPortDeviceWindows(serial));
             device.PositionVelocityTimeUpdated += (from, ev) =>
             {
                 Console.WriteLine($"{ev.DateTime.TimeOfDay}   {DateTime.UtcNow.TimeOfDay:h\\:mm\\:ss}   {ev.SatelliteCount}     {ev.Latitude} - {ev.Longitude}");
             };
-
             serial.Open();
 
-            //device.StartListeningAsync();
-            //device.ConfigurePortAsync(ublox.Core.Messages.Enums.UartPort.Usb, 19200,
-            //    ublox.Core.Messages.Enums.PortInProtocols.Ubx | ublox.Core.Messages.Enums.PortInProtocols.Nmea,
-            //    ublox.Core.Messages.Enums.PortOutProtocols.Ubx).GetAwaiter().GetResult();
 
-            var source = new CancellationTokenSource();
-            source.Cancel();
-            ListenLoop(source, new UbloxSerialPortDeviceWindows(serial));
+            //RunWithBinarySerializer(device);
+            RunWithManualSerializer(serial, source);
 
 
             Console.ReadLine();
-
+            source.Cancel();
         }
 
-        public static void Read(SerialPort serial)
+        public static void RunWithBinarySerializer(Device device)
         {
-
+            device.StartListeningAsync();
+            device.ConfigurePortAsync(ublox.Core.Messages.Enums.UartPort.Usb, 19200,
+                ublox.Core.Messages.Enums.PortInProtocols.Ubx | ublox.Core.Messages.Enums.PortInProtocols.Nmea,
+                ublox.Core.Messages.Enums.PortOutProtocols.Ubx).GetAwaiter().GetResult();
         }
 
-        public static async void ListenLoop(CancellationTokenSource cancellationTokenSource, ISerialDevice serialDevice)
+        public static void RunWithManualSerializer(SerialPort serial, CancellationTokenSource source)
+        {
+            ListenLoop(source, new UbloxSerialPortDeviceWindows(serial));
+        }
+
+
+        static async void ListenLoop(CancellationTokenSource cancellationTokenSource, ISerialDevice serialDevice)
         {
             var cancellationToken = cancellationTokenSource.Token;
 
